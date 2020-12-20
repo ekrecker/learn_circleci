@@ -6,6 +6,6 @@ jobs:
 
     steps:
       - checkout
-      - run: 
+      - run:
           name: Run tests
           command: cd ~/python/; python3 -m unittest
