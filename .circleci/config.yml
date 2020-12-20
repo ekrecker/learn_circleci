@@ -1,11 +1,18 @@
 version: 2.1
-jobs:
-  build:
-    docker:
-      - image: python3
 
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  build-and-test:
+    executor: python/default
     steps:
       - checkout
-      - run:
+      - run: 
           name: Run tests
           command: cd ~/python/; python3 -m unittest
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
